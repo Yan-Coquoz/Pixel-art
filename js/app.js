@@ -1,14 +1,16 @@
 const app = {
   invader: document.getElementById("invader"),
-  tailleGrille: 15,
-  taillePixel: 35,
+  tailleGrille: 20,
+  taillePixel: 15,
+  color: "black",
 
   init: function () {
-    app.MyTitle();
+    app.monTitre();
+    app.formDatas();
     app.creationGrille();
   },
 
-  MyTitle: function () {
+  monTitre: function () {
     const title = (document.querySelector("h1").textContent =
       "Hello Space Invader");
     return title;
@@ -36,20 +38,33 @@ const app = {
         cols.style.width = `${app.taillePixel}px`;
         cols.style.height = `${app.taillePixel}px`;
 
-        cols.addEventListener("click", app.pixelCapure);
+        cols.addEventListener("click", app.pixelColor);
         rows.appendChild(cols);
       }
     }
   },
-  pixelCapure: (evt) => {
+  pixelColor: (evt) => {
     const pixel = evt.target;
     pixel.classList.toggle("active");
     if (pixel.classList.contains("active")) {
-      pixel.style.backgroundColor = "red";
+      pixel.style.backgroundColor = "blue";
     } else {
       pixel.style.backgroundColor = "white";
     }
-    // console.log(pixel);
+  },
+  formDatas: () => {
+    const form = document.querySelector(".configuration");
+    form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+
+      const tailleGr = document.querySelector("#taille_grille");
+      const taillePx = document.querySelector("#taille_pixel");
+
+      app.tailleGrille = Number(tailleGr.value);
+      app.taillePixel = Number(taillePx.value);
+
+      app.creationGrille();
+    });
   },
 };
 
