@@ -18,5 +18,5 @@ v2
 - Amelioration de l'UX/UI 
 - Selection d'un background.
 - Message de bienvenue.
-- stockages des couleurs utilisées.
+- stockages des couleurs utilisées, peuvent être re-selectionné.
   

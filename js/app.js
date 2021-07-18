@@ -1,7 +1,7 @@
 const app = {
   invader: document.getElementById("invader"),
-  tailleGrille: 20,
-  taillePixel: 15,
+  tailleGrille: null,
+  taillePixel: null,
   color: "black",
 
   init: function () {
@@ -46,10 +46,12 @@ const app = {
   },
   pixelColor: (evt) => {
     const pixel = evt.target;
-    pixel.classList.toggle("active");
+    pixel.classList.add("active");
+
     if (pixel.classList.contains("active")) {
       pixel.style.backgroundColor = app.color;
     } else {
+      pixel.classList.remove("active");
       app.color = pixel.style.backgroundColor = "white";
     }
   },
@@ -69,11 +71,22 @@ const app = {
   },
   formColor: () => {
     const formCol = document.querySelector("#form_color");
+    const divCol = document.querySelector("#select");
+
     formCol.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      // valeur de l'input color
       const pixelColor = document.querySelector("#color");
       console.log(pixelColor.value);
       app.color = pixelColor.value;
+
+      const selectedColor = document.createElement("div");
+      selectedColor.classList.add("select_color");
+      selectedColor.style.backgroundColor = pixelColor.value;
+
+      // console.log(selectedColor);
+
+      divCol.appendChild(selectedColor);
     });
   },
 };
