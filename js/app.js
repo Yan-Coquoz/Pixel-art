@@ -7,6 +7,7 @@ const app = {
   init: function () {
     app.monTitre();
     app.formDatas();
+    app.formColor();
     app.creationGrille();
   },
 
@@ -47,13 +48,13 @@ const app = {
     const pixel = evt.target;
     pixel.classList.toggle("active");
     if (pixel.classList.contains("active")) {
-      pixel.style.backgroundColor = "blue";
+      pixel.style.backgroundColor = app.color;
     } else {
-      pixel.style.backgroundColor = "white";
+      app.color = pixel.style.backgroundColor = "white";
     }
   },
   formDatas: () => {
-    const form = document.querySelector(".configuration");
+    const form = document.querySelector("#form_tailles");
     form.addEventListener("submit", (evt) => {
       evt.preventDefault();
 
@@ -64,6 +65,16 @@ const app = {
       app.taillePixel = Number(taillePx.value);
 
       app.creationGrille();
+    });
+  },
+  formColor: () => {
+    const formCol = document.querySelector("#form_color");
+
+    formCol.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      const pixelColor = document.querySelector("#color");
+      console.log(pixelColor.value);
+      app.color = pixelColor.value;
     });
   },
 };

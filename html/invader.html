@@ -12,7 +12,7 @@
 <body>
   <div class="content">
     <h1>Space Invader</h1>
-    <form class="configuration">
+    <form id="form_tailles">
       <label for="taille_grille">Taille de la grille
         <input type="number" name="taille_grille" min="5" required id="taille_grille" placeholder="taille de la grille"
           autofocus>
@@ -20,13 +20,14 @@
       <label for="taille_pixel">Taille du pixel
         <input type="number" name="taille_pixel" min="1" id="taille_pixel" placeholder="taille du pixel" required>
       </label>
-      <button type="submit" id="btn_form">selection</button>
+      <button type="submit" id="btn_form">Validation</button>
     </form>
-    <form action="">
+
+    <form id="form_color">
       <label for="color">Couleur du pixel
         <input type="color" name="color" id="color">
       </label>
-      <button type="button" id="btn_form_color">validation</button>
+      <button type="submit" id="btn_form_color">Séléction</button>
     </form>
 
 
