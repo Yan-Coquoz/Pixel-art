@@ -69,7 +69,6 @@ const app = {
   },
   formColor: () => {
     const formCol = document.querySelector("#form_color");
-
     formCol.addEventListener("submit", (evt) => {
       evt.preventDefault();
       const pixelColor = document.querySelector("#color");
