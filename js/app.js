@@ -1,8 +1,12 @@
 const app = {
   invader: document.getElementById("invader"),
+  divCol: document.querySelector("#select"),
+  formCol: document.querySelector("#form_color"),
   tailleGrille: null,
   taillePixel: null,
   color: "black",
+  name: prompt("Quel est ton prénom?"),
+  tabColor: [],
 
   init: function () {
     app.monTitre();
@@ -12,8 +16,9 @@ const app = {
   },
 
   monTitre: function () {
-    const title = (document.querySelector("h1").textContent =
-      "Hello Space Invader");
+    const title = (document.querySelector("h1").textContent = `Bonjour ${
+      app.name || ""
+    }`);
     return title;
   },
 
@@ -44,6 +49,7 @@ const app = {
       }
     }
   },
+
   pixelColor: (evt) => {
     const pixel = evt.target;
     pixel.classList.add("active");
@@ -55,6 +61,7 @@ const app = {
       app.color = pixel.style.backgroundColor = "white";
     }
   },
+
   formDatas: () => {
     const form = document.querySelector("#form_tailles");
     form.addEventListener("submit", (evt) => {
@@ -69,24 +76,33 @@ const app = {
       app.creationGrille();
     });
   },
-  formColor: () => {
-    const formCol = document.querySelector("#form_color");
-    const divCol = document.querySelector("#select");
 
-    formCol.addEventListener("submit", (evt) => {
+  formColor: () => {
+    app.formCol.addEventListener("submit", (evt) => {
       evt.preventDefault();
       // valeur de l'input color
       const pixelColor = document.querySelector("#color");
-      console.log(pixelColor.value);
+      console.log("la couleur sélectionnée ", pixelColor.value);
       app.color = pixelColor.value;
 
       const selectedColor = document.createElement("div");
       selectedColor.classList.add("select_color");
       selectedColor.style.backgroundColor = pixelColor.value;
 
-      // console.log(selectedColor);
+      // todo: si une couleur est déja présente, ne pas la rajouter au tableau
 
-      divCol.appendChild(selectedColor);
+      app.tabColor.push({ elt: selectedColor });
+      app.tabColorSelections();
+    });
+  },
+
+  tabColorSelections: () => {
+    app.tabColor.forEach((element) => {
+      app.divCol.appendChild(element.elt);
+      element.elt.addEventListener("click", () => {
+        //todo placer la fonction de selection des couleurs
+        console.log("je selectionne la couleur");
+      });
     });
   },
 };

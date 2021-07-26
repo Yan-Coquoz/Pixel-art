@@ -15,8 +15,8 @@ v1
 - Choix de la couleur.
   
 v2
+- `Message de bienvenue.`
 - Amelioration de l'UX/UI 
 - Selection d'un background.
-- Message de bienvenue.
 - stockages des couleurs utilisées, peuvent être re-selectionné.
   
