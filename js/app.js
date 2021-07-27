@@ -2,7 +2,8 @@ const app = {
   invader: document.getElementById("invader"),
   divCol: document.querySelector("#select"),
   formCol: document.querySelector("#form_color"),
-  btnReset: document.querySelector("#reset"),
+  btnReset: document.querySelector("#reset_color"),
+  btnResetGrille: document.querySelector("#reset_grille"),
   tailleGrille: null,
   taillePixel: null,
   color: "black",
@@ -11,6 +12,7 @@ const app = {
 
   init: function () {
     app.btnReset.addEventListener("click", app.colorReset);
+    app.btnResetGrille.addEventListener("click", app.grilleReset);
     app.monTitre();
     app.formDatas();
     app.formColor();
@@ -113,15 +115,17 @@ const app = {
     app.tabColor.forEach((element) => {
       app.divCol.appendChild(element);
       element.addEventListener("click", () => {
-        //todo placer la fonction de selection des couleurs
-        console.log("je selectionne la couleur");
+        console.log("je selectionne la couleur", element.style.backgroundColor);
+        app.color = element.style.backgroundColor;
       });
     });
   },
   colorReset: () => {
-    console.log("je suis dans le reset");
     app.tabColor = [];
     app.divCol.innerHTML = "";
+  },
+  grilleReset: () => {
+    app.creationGrille();
   },
 };
 

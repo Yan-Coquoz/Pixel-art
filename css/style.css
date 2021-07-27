@@ -43,7 +43,6 @@ button {
   height: auto;
   box-sizing: border-box;
 }
-
 .select_color {
   margin-left: 1rem;
   display: inline-block;
@@ -51,6 +50,10 @@ button {
   border-radius: 5px;
   height: 2rem;
   width: 2rem;
+}
+.form_title {
+  margin-top: 2rem;
+  font-size: larger;
 }
 /* position de la grille */
 #invader {

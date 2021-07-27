@@ -13,28 +13,33 @@
 <body>
   <div class="content">
     <h1>Space Invader</h1>
-    <form id="form_tailles">
-      <label for="taille_grille">
-        <input type="number" name="taille_grille" min="5" max="50" required id="taille_grille"
-          placeholder="taille de la grille" autofocus>
-      </label>
-      <label for="taille_pixel">
-        <input type="number" name="taille_pixel" min="1" max="50" id="taille_pixel" placeholder="taille du pixel"
-          required>
-      </label>
-      <button type="submit" id="btn_form">Validation</button>
-    </form>
+    <div id="btns_reset">
+      <button type="reset" id="reset_color" style="width: fit-content;">Effacer les couleurs</button>
+      <button type="reset" id="reset_grille" style="width: fit-content;">Effacer la grille</button>
+    </div>
+    <div id=form_content>
+      <form id="form_tailles">
+        <legend class="form_title">Grille :</legend>
+        <label for="taille_grille">
+          <input type="number" name="taille_grille" min="5" max="50" required id="taille_grille"
+            placeholder="taille de la grille" autofocus>
+        </label>
+        <label for="taille_pixel">
+          <input type="number" name="taille_pixel" min="1" max="50" id="taille_pixel" placeholder="taille du pixel"
+            required>
+        </label>
+        <button type="submit" id="btn_form">Validation</button>
+      </form>
 
-    <form id="form_color">
-      <label for="color">Couleur du pixel
-        <input type="color" name="color" id="color">
-      </label>
-      <button type="submit" id="btn_form_color">Séléction</button>
-      <div id="select"></div>
-    </form>
-    <button type="reset" id="reset">Reset color</button>
-
-
+      <form id="form_color">
+        <legend class="form_title">Couleurs :</legend>
+        <label for="color">Couleur du pixel
+          <input type="color" name="color" id="color">
+        </label>
+        <button type="submit" id="btn_form_color">Séléction</button>
+        <div id="select"></div>
+      </form>
+    </div>
     <div id="invader"></div>
   </div>
   <script src="../js/app.js"></script>
