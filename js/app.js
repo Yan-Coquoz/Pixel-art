@@ -2,6 +2,7 @@ const app = {
   invader: document.getElementById("invader"),
   divCol: document.querySelector("#select"),
   formCol: document.querySelector("#form_color"),
+  btnReset: document.querySelector("#reset"),
   tailleGrille: null,
   taillePixel: null,
   color: "black",
@@ -9,6 +10,7 @@ const app = {
   tabColor: [],
 
   init: function () {
+    app.btnReset.addEventListener("click", app.colorReset);
     app.monTitre();
     app.formDatas();
     app.formColor();
@@ -80,6 +82,7 @@ const app = {
   formColor: () => {
     app.formCol.addEventListener("submit", (evt) => {
       evt.preventDefault();
+
       // valeur de l'input color
       const pixelColor = document.querySelector("#color");
       console.log("la couleur sélectionnée ", pixelColor.value);
@@ -89,21 +92,36 @@ const app = {
       selectedColor.classList.add("select_color");
       selectedColor.style.backgroundColor = pixelColor.value;
 
-      // todo: si une couleur est déja présente, ne pas la rajouter au tableau
+      console.log("selectedColor ", selectedColor.style.backgroundColor); // ! hexadecimal
 
-      app.tabColor.push({ elt: selectedColor });
+      // je place la couleur dans le tableau
+      app.tabColor.push(selectedColor);
+
+      // todo: si une couleur est déja présente, ne pas la rajouter au tableau
+      // ! probleme , les couleurs recus de l'input sont en hexadeciale en sortie de tableau elle sont en rgb
+      const foundColor = app.tabColor.find((el) => {
+        console.log("couleur ", el.style.backgroundColor);
+        console.log("select ", selectedColor.style.backgroundColor);
+        el.style.backgroundColor == selectedColor.style.backgroundColor;
+      });
+      console.log("found Color ", foundColor);
       app.tabColorSelections();
     });
   },
 
   tabColorSelections: () => {
     app.tabColor.forEach((element) => {
-      app.divCol.appendChild(element.elt);
-      element.elt.addEventListener("click", () => {
+      app.divCol.appendChild(element);
+      element.addEventListener("click", () => {
         //todo placer la fonction de selection des couleurs
         console.log("je selectionne la couleur");
       });
     });
+  },
+  colorReset: () => {
+    console.log("je suis dans le reset");
+    app.tabColor = [];
+    app.divCol.innerHTML = "";
   },
 };
 
