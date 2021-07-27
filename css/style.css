@@ -8,23 +8,39 @@ body {
 .content {
   height: 100vh;
   width: 80%;
-  margin: 0 auto;
+  margin: 2rem auto;
+  display: flex;
 }
 h1 {
-  margin-top: 2rem;
   color: fuchsia;
   font-size: 2.5rem;
+  font-weight: 600;
+  width: 100%;
+  margin: 2rem auto;
+}
+
+#form_content {
+  width: 50%;
+  display: inline-block;
+}
+#grille {
+  width: 50%;
+  display: inline-block;
+  margin-top: 25vh;
 }
 label {
   padding: 1rem;
   color: lime;
   font-size: 2rem;
+  box-sizing: border-box;
+  width: 150px;
 }
 input {
   margin-left: 1rem;
   border-radius: 5px;
   padding: 0.8em;
-  width: 10%;
+  width: 17%;
+  min-width: 10%;
   height: 1.5rem;
   padding: 0.2rem;
 }
@@ -38,7 +54,9 @@ button {
   letter-spacing: 0.2rem;
   font-weight: 600;
 }
+/* box de couleur */
 #select {
+  display: inline-block;
   width: 40%;
   height: auto;
   box-sizing: border-box;
@@ -51,11 +69,13 @@ button {
   height: 2rem;
   width: 2rem;
 }
-.form_title {
+/*legend */
+.form_titles {
   margin-top: 2rem;
-  font-size: larger;
+  font-size: 2em;
+  font-weight: 600;
 }
-/* position de la grille */
+/* position des élément de la grille */
 #invader {
   display: flex;
   justify-content: center;
