@@ -97,7 +97,7 @@ const app = {
 
       // valeur de l'input color
       const pixelColor = document.querySelector("#color");
-      console.log("la couleur sélectionnée ", pixelColor.value);
+      //console.log("la couleur sélectionnée ", pixelColor.value);
       app.color = pixelColor.value;
 
       const selectedColor = document.createElement("div");
@@ -111,7 +111,7 @@ const app = {
       const foundColor = app.tabColor.find((el) => {
         el.style.backgroundColor == selectedColor.style.backgroundColor;
       });
-      console.log("found Color ", foundColor);
+      //console.log("found Color ", foundColor);
       app.tabColorSelections();
     });
   },
@@ -138,7 +138,7 @@ Selection des couleurs déja selectionner
     app.creationGrille();
   },
   allWhite: () => {
-    console.log("white");
+    // console.log("white");
     app.color = "#fff";
   },
 };

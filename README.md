@@ -1,6 +1,7 @@
 # Grille de dessin
 
  Création d'une grille de dessin version space invader.
+ Ce projet à été pensé pour ma petite fille.
 
 ---
 ### techno :
