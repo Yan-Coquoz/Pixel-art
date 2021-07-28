@@ -61,6 +61,22 @@ button {
   height: auto;
   box-sizing: border-box;
 }
+#gum {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 2rem;
+  width: 2rem;
+  display: inline-block;
+}
+#gum:active {
+  position: relative;
+  top: 2px;
+}
+span {
+  font-size: 2em;
+  display: inline-block;
+  margin-right: 2rem;
+}
 .select_color {
   margin-left: 1rem;
   display: inline-block;

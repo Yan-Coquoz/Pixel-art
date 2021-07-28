@@ -4,6 +4,7 @@ const app = {
   formCol: document.querySelector("#form_color"),
   btnReset: document.querySelector("#reset_color"),
   btnResetGrille: document.querySelector("#reset_grille"),
+  gum: document.querySelector("#gum"),
   tailleGrille: null,
   taillePixel: null,
   color: "black",
@@ -13,12 +14,16 @@ const app = {
   init: function () {
     app.btnReset.addEventListener("click", app.colorReset);
     app.btnResetGrille.addEventListener("click", app.grilleReset);
+    app.gum.style.backgroundColor = "#fff";
+    app.gum.addEventListener("click", app.allWhite);
     app.monTitre();
     app.formDatas();
     app.formColor();
     app.creationGrille();
   },
-
+  /**
+   * dire bonjour
+   */
   monTitre: function () {
     const title = (document.querySelector("h1").textContent = `Bonjour ${
       app.name || ""
@@ -26,6 +31,9 @@ const app = {
     return title;
   },
 
+  /**
+   * création de la grille
+   */
   creationGrille: function () {
     // Je purifie la grille
     app.invader.innerHTML = "";
@@ -53,19 +61,18 @@ const app = {
       }
     }
   },
-
+  /**
+   * affectation de la couleur
+   */
   pixelColor: (evt) => {
     const pixel = evt.target;
     pixel.classList.add("active");
-
-    if (pixel.classList.contains("active")) {
-      pixel.style.backgroundColor = app.color;
-    } else {
-      pixel.classList.remove("active");
-      app.color = pixel.style.backgroundColor = "white";
-    }
+    pixel.style.backgroundColor = app.color;
   },
 
+  /**
+   * entrée des valeurs de la grille
+   */
   formDatas: () => {
     const form = document.querySelector("#form_tailles");
     form.addEventListener("submit", (evt) => {
@@ -81,6 +88,9 @@ const app = {
     });
   },
 
+  /**
+   * recuperation des couleurs de l'input
+   */
   formColor: () => {
     app.formCol.addEventListener("submit", (evt) => {
       evt.preventDefault();
@@ -94,16 +104,11 @@ const app = {
       selectedColor.classList.add("select_color");
       selectedColor.style.backgroundColor = pixelColor.value;
 
-      console.log("selectedColor ", selectedColor.style.backgroundColor); // ! hexadecimal
-
       // je place la couleur dans le tableau
       app.tabColor.push(selectedColor);
 
-      // todo: si une couleur est déja présente, ne pas la rajouter au tableau
-      // ! probleme , les couleurs recus de l'input sont en hexadeciale en sortie de tableau elle sont en rgb
+      // todo faire une condition poue les couleurs déja presente
       const foundColor = app.tabColor.find((el) => {
-        console.log("couleur ", el.style.backgroundColor);
-        console.log("select ", selectedColor.style.backgroundColor);
         el.style.backgroundColor == selectedColor.style.backgroundColor;
       });
       console.log("found Color ", foundColor);
@@ -111,21 +116,30 @@ const app = {
     });
   },
 
+  /*
+Selection des couleurs déja selectionner
+*/
   tabColorSelections: () => {
     app.tabColor.forEach((element) => {
       app.divCol.appendChild(element);
       element.addEventListener("click", () => {
-        console.log("je selectionne la couleur", element.style.backgroundColor);
+        // console.log("je selectionne la couleur", element.style.backgroundColor);
         app.color = element.style.backgroundColor;
       });
     });
   },
+
+  /*resets*/
   colorReset: () => {
     app.tabColor = [];
     app.divCol.innerHTML = "";
   },
   grilleReset: () => {
     app.creationGrille();
+  },
+  allWhite: () => {
+    console.log("white");
+    app.color = "#fff";
   },
 };
 
