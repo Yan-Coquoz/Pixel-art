@@ -104,14 +104,26 @@ const app = {
       selectedColor.classList.add("select_color");
       selectedColor.style.backgroundColor = pixelColor.value;
 
-      // je place la couleur dans le tableau
-      app.tabColor.push(selectedColor);
-
-      // todo faire une condition poue les couleurs déja presente
-      const foundColor = app.tabColor.find((el) => {
-        el.style.backgroundColor == selectedColor.style.backgroundColor;
+      // Je regarde si dans le tableau des couleur, celle selection y est deja
+      const foundColor = app.tabColor.find((color) => {
+        return (
+          color.style.backgroundColor === selectedColor.style.backgroundColor
+        );
       });
-      //console.log("found Color ", foundColor);
+
+      if (!foundColor) {
+        // je place la couleur dans le tableau
+        app.tabColor.push(selectedColor);
+      } else {
+        const warning = document.createElement("p");
+        warning.textContent = "La couleur est déja présente";
+        warning.style.color = "white";
+        app.formCol.appendChild(warning);
+        setTimeout(() => {
+          warning.innerHTML = "";
+        }, 2000);
+      }
+      console.log("found Color ", foundColor);
       app.tabColorSelections();
     });
   },

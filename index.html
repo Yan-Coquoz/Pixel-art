@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Invader</title>
+  <title>Pixel Art</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -14,23 +14,27 @@
   <div class="content">
     <div id=form_content>
       <div>
-        <h1>Space Invader</h1>
+        <h1>Pixel Art</h1>
       </div>
       <div id="btns_reset">
-        <button type="reset" id="reset_color" style="width: fit-content;">Effacer les couleurs</button>
-        <button type="reset" id="reset_grille" style="width: fit-content;">Effacer la grille</button>
+        <button type="reset" class="btn" id="reset_color" style="width: fit-content;">Effacer les couleurs</button>
+        <button type="reset" class="btn" id="reset_grille" style="width: fit-content;">Effacer la grille</button>
       </div>
       <form id="form_tailles">
+
         <legend class="form_titles">Grille :</legend>
+
         <label for="taille_grille">
-          <input type="number" name="taille_grille" min="5" max="50" required id="taille_grille"
+          <input type="number" name="taille_grille" min="5" max="30" required id="taille_grille"
             placeholder="taille de la grille" autofocus>
         </label>
+
         <label for="taille_pixel">
-          <input type="number" name="taille_pixel" min="1" max="50" id="taille_pixel" placeholder="taille du pixel"
+          <input type="number" name="taille_pixel" min="1" max="30" id="taille_pixel" placeholder="taille du pixel"
             required>
         </label>
-        <button type="submit" id="btn_form">Validation</button>
+
+        <button type="submit" class="btn" id="btn_form">Validation</button>
       </form>
       <span>Gomme :</span>
       <div id="gum"></div>
@@ -40,7 +44,7 @@
         <label for="color">Couleur du pixel
           <input type="color" name="color" id="color">
         </label>
-        <button type="submit" id="btn_form_color">Séléction</button>
+        <button type="submit" class="btn" id="btn_form_color">Séléction</button>
         <div id="select"></div>
       </form>
     </div>

@@ -4,6 +4,7 @@ body {
   background: linear-gradient(45deg, red, blue, yellow) no-repeat;
   background-size: cover;
   font-family: "Shadows Into Light", cursive;
+  font-size: 1em;
 }
 .content {
   height: 100vh;
@@ -12,8 +13,8 @@ body {
   display: flex;
 }
 h1 {
-  color: fuchsia;
-  font-size: 2.5rem;
+  color: rgb(255, 0, 242);
+  font-size: 2.5em;
   font-weight: 600;
   width: 100%;
   margin: 2rem auto;
@@ -44,15 +45,16 @@ input {
   height: 1.5rem;
   padding: 0.2rem;
 }
-button {
+.btn {
   padding: 1em;
-  width: 100px;
+  width: 3em;
   margin: 1rem;
   border-radius: 5px;
   background: rgb(212, 209, 209);
   font-family: inherit;
   letter-spacing: 0.2rem;
   font-weight: 600;
+  font-size: 1em;
 }
 /* box de couleur */
 #select {
@@ -91,6 +93,7 @@ span {
   font-size: 2em;
   font-weight: 600;
 }
+
 /* position des élément de la grille */
 #invader {
   display: flex;
@@ -102,4 +105,17 @@ span {
   border: 1px solid black;
   height: 20px;
   width: 20px;
+}
+@media all and (max-width: 1250px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  #form_content {
+    width: 80%;
+  }
+  #grille {
+    width: 80%;
+    height: 80%;
+  }
 }

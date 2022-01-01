@@ -13,10 +13,12 @@
 
 - `Choix de la taille de la grille.`
 - `Choix de la taille des pixels.`
-- `Choix de la couleur.`
-  
+- `Choix de la couleur.` 
 - `Message de bienvenue.`
 - `stockages des couleurs utilisées, peuvent être re-selectionné.`
+  
+  **later**
 - Amelioration de l'UX/UI.
 - Selection d'un background.
+- responsive
   
