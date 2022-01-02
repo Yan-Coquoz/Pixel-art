@@ -1,53 +1,82 @@
 @import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
 
 body {
-  background: linear-gradient(45deg, red, blue, yellow) no-repeat;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, red, blue, yellow);
   background-size: cover;
   font-family: "Shadows Into Light", cursive;
   font-size: 1em;
+  color: wheat;
 }
 .content {
   height: 100vh;
   width: 80%;
   margin: 2rem auto;
   display: flex;
-}
-h1 {
-  color: rgb(255, 0, 242);
-  font-size: 2.5em;
-  font-weight: 600;
-  width: 100%;
-  margin: 2rem auto;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-#form_content {
-  width: 50%;
-  display: inline-block;
-}
-#grille {
-  width: 50%;
-  display: inline-block;
-  margin-top: 25vh;
-}
-label {
+#content_form {
   padding: 1rem;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content_title {
+  width: 100%;
+  margin: 1rem auto;
+  text-align: center;
+}
+h1 {
+  color: #f0f;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+.content_config {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.form {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form_titles {
+  margin: 1rem 0;
   color: lime;
   font-size: 2rem;
+}
+
+label {
+  width: 100%;
+  text-align: left;
+  margin: 1rem auto;
   box-sizing: border-box;
-  width: 150px;
+  font-size: larger;
 }
 input {
-  margin-left: 1rem;
+  float: right;
   border-radius: 5px;
   padding: 0.8em;
-  width: 17%;
-  min-width: 10%;
+  width: 40%;
+  min-width: 20%;
   height: 1.5rem;
   padding: 0.2rem;
+  position: relative;
+  top: -0.5rem;
+  text-align: center;
 }
 .btn {
   padding: 1em;
-  width: 3em;
   margin: 1rem;
   border-radius: 5px;
   background: rgb(212, 209, 209);
@@ -56,23 +85,43 @@ input {
   font-weight: 600;
   font-size: 1em;
 }
-/* box de couleur */
-#select {
-  display: inline-block;
-  width: 40%;
-  height: auto;
-  box-sizing: border-box;
+.content_gum {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+.content_gum span {
+  color: lime;
+  font-size: 2em;
+  padding: 1rem 1rem;
+}
+
 #gum {
   border: 1px solid black;
   border-radius: 5px;
   height: 2rem;
   width: 2rem;
-  display: inline-block;
 }
 #gum:active {
   position: relative;
   top: 2px;
+}
+#btns_reset {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* tableau des couleurs selectionnées */
+#select {
+  display: inline-block;
+  width: 40%;
+  height: auto;
+  box-sizing: border-box;
 }
 span {
   font-size: 2em;
@@ -87,15 +136,11 @@ span {
   height: 2rem;
   width: 2rem;
 }
-/*legend */
-.form_titles {
-  margin-top: 2rem;
-  font-size: 2em;
-  font-weight: 600;
-}
 
 /* position des élément de la grille */
-#invader {
+#grille {
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
 }
@@ -106,16 +151,33 @@ span {
   height: 20px;
   width: 20px;
 }
+/* TODO gestion du media queries*/
 @media all and (max-width: 1250px) {
   .content {
-    display: flex;
-    flex-direction: column;
+    height: 0;
   }
   #form_content {
     width: 80%;
   }
-  #grille {
+  #content_grille {
     width: 80%;
     height: 80%;
   }
 }
+@media all and (max-width: 800px) {
+  .content {
+  }
+  .content_config {
+    flex-direction: column;
+  }
+  .form {
+    width: 100%;
+  }
+  #btns_reset {
+    width: 100%;
+    display: block;
+  }
+  .btn {
+    width: 100%;
+  }
+} ;

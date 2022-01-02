@@ -1,7 +1,7 @@
 const app = {
-  invader: document.getElementById("invader"),
+  invader: document.getElementById("grille"),
   divCol: document.querySelector("#select"),
-  formCol: document.querySelector("#form_color"),
+  formCol: document.querySelector("#form_gestion_color_grille"),
   btnReset: document.querySelector("#reset_color"),
   btnResetGrille: document.querySelector("#reset_grille"),
   gum: document.querySelector("#gum"),
@@ -74,7 +74,7 @@ const app = {
    * entrée des valeurs de la grille
    */
   formDatas: () => {
-    const form = document.querySelector("#form_tailles");
+    const form = document.querySelector("#form_gestion_taille_grille");
     form.addEventListener("submit", (evt) => {
       evt.preventDefault();
 
@@ -135,7 +135,6 @@ Selection des couleurs déja selectionner
     app.tabColor.forEach((element) => {
       app.divCol.appendChild(element);
       element.addEventListener("click", () => {
-        // console.log("je selectionne la couleur", element.style.backgroundColor);
         app.color = element.style.backgroundColor;
       });
     });
