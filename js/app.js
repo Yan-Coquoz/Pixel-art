@@ -116,11 +116,13 @@ const app = {
         app.tabColor.push(selectedColor);
       } else {
         const warning = document.createElement("p");
+        warning.classList.add("warning");
+        warning.style.color = "red";
         warning.textContent = "La couleur est déja présente";
-        warning.style.color = "white";
+
         app.formCol.appendChild(warning);
         setTimeout(() => {
-          warning.innerHTML = "";
+          warning.remove();
         }, 2000);
       }
       console.log("found Color ", foundColor);
