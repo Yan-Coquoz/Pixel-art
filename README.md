@@ -1,6 +1,6 @@
 # Grille de dessin
 
- Création d'une grille de dessin version space invader.
+ Création d'une grille de dessin version Pixel Art.
  Ce projet à été pensé pour ma petite fille.
 
 ---
@@ -17,8 +17,5 @@
 - `Message de bienvenue.`
 - `stockages des couleurs utilisées, peuvent être re-selectionné.`
   
-  **later**
-- Amelioration de l'UX/UI.
-- Selection d'un background.
-- responsive
+ 
   
