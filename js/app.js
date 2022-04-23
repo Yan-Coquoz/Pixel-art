@@ -3,6 +3,7 @@ const app = {
   divCol: document.querySelector("#select"),
   formCol: document.querySelector("#form_gestion_color_grille"),
   btnReset: document.querySelector("#reset_color"),
+  btnPrint: document.querySelector("#impression_grille"),
   btnResetGrille: document.querySelector("#reset_grille"),
   gum: document.querySelector("#gum"),
   tailleGrille: null,
@@ -25,10 +26,9 @@ const app = {
    * dire bonjour
    */
   monTitre: function () {
-    const title = (document.querySelector("h1").textContent = `Bonjour ${
+    return (document.querySelector("h1").textContent = `Bonjour ${
       app.name || ""
     }`);
-    return title;
   },
 
   /**
