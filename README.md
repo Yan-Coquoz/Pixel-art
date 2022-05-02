@@ -1,5 +1,7 @@
 # Grille de dessin
 
+![GitHub repo size](https://img.shields.io/github/repo-size/Yan-Coquoz/Pixel-art)  
+
  Création d'une grille de dessin version Pixel Art.
  Ce projet à été pensé pour ma petite fille.
 
